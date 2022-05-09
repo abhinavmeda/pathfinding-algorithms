@@ -1,24 +1,13 @@
-let sliderVal = document.getElementById("grid-picker");
-sliderVal.value = 100;
-let labelVal = document.getElementsByClassName("label");
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext('2d');
-
-class cell {
-
-}
-sliderVal.oninput = function (){
-    let newDimensions = sliderVal.value;
-    for(let i = 0; i < labelVal.length; i++){
-        labelVal[i].innerHTML = newDimensions;
+let grid = document.createElement("table");
+grid.id = 'grid';
+let c = 0;
+for(let i = 0; i < 20; i++){
+    let tr = grid.appendChild(document.createElement("tr"));
+    for(let j = 0; j < 20; j++){
+        let cell = tr.appendChild(document.createElement("td"));
+        cell.addEventListener('click', () => {
+            cell.style.backgroundColor = "black";
+        })
     }
-    canvas.height = newDimensions;
-    canvas.width =newDimensions;
-    
-    for(let i = 0; i < canvas.height; i++){
-        for(let j = 0; j < canvas.height; j++){
-            
-        } 
-    }
-
 }
+document.body.appendChild(grid);
